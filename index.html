@@ -82,31 +82,78 @@
         .sticky-header {
             background-color: transparent;
             backdrop-filter: none;
-            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .sticky-header.transparent {
             background-color: transparent;
             backdrop-filter: none;
             box-shadow: none;
-            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .sticky-header .nav-link {
             color: #ffffff !important;
-            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .sticky-header .nav-link::after {
             background-color: #ffffff !important;
+            transition: background-color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .sticky-header .text-blue-900 {
             color: #ffffff !important;
-            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .sticky-header .text-gray-700 {
+            color: #ffffff !important;
+            transition: color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .sticky-header.solid {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sticky-header.solid .nav-link {
+            color: #1e40af !important;
+            transition: color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .sticky-header.solid .nav-link::after {
+            background-color: #1e40af !important;
+            transition: background-color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .sticky-header.solid .text-blue-900 {
+            color: #1e40af !important;
+            transition: color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .sticky-header.solid .text-gray-700 {
+            color: #374151 !important;
+            transition: color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .sticky-header.transparent .nav-link {
+            color: #ffffff !important;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sticky-header.transparent .nav-link::after {
+            background-color: #ffffff !important;
+        }
+        
+        .sticky-header.transparent .text-blue-900 {
+            color: #ffffff !important;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sticky-header.transparent .text-gray-700 {
             color: #ffffff !important;
             transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -135,7 +182,7 @@
         
         .sticky-header.header-hidden {
             transform: translateY(-100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .mobile-menu {
@@ -805,22 +852,41 @@
             });
         });
 
-        // Header scroll effect - always transparent, hide/show on scroll direction, highlight on hover
+        // Header scroll effect - simplified for maximum smoothness
         let lastScrollTop = 0;
+        let scrollTimeout;
+        
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
-            // Hide/show header based on scroll direction
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down - hide header
-                header.classList.add('header-hidden');
-            } else {
-                // Scrolling up - show header
-                header.classList.remove('header-hidden');
-            }
+            // Clear existing timeout
+            clearTimeout(scrollTimeout);
             
-            lastScrollTop = scrollTop;
+            // Debounce with longer delay for smoother experience
+            scrollTimeout = setTimeout(() => {
+                // Hide/show header based on scroll direction
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down - hide header and make it transparent
+                    header.classList.add('header-hidden');
+                    header.classList.add('transparent');
+                    header.classList.remove('solid');
+                } else {
+                    // Scrolling up - show header and make it solid
+                    header.classList.remove('header-hidden');
+                    header.classList.remove('transparent');
+                    header.classList.add('solid');
+                }
+                
+                // At the top of page, make header transparent
+                if (scrollTop <= 0) {
+                    header.classList.remove('header-hidden');
+                    header.classList.add('transparent');
+                    header.classList.remove('solid');
+                }
+                
+                lastScrollTop = scrollTop;
+            }, 50); // Longer delay for smoother transitions
         });
 
         // Contact Form Modal Functions
