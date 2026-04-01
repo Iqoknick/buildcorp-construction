@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R Mingo Construction and Development Corporation - Building the Future with Excellence | Professional Construction Services</title>
+    <meta name="description" content="R Mingo Construction and Development Corporation offers professional construction services including residential, commercial, and infrastructure projects. Serving New York, Los Angeles, Chicago, and Miami with 35+ years of excellence.">
+    <meta name="keywords" content="construction company, residential construction, commercial construction, infrastructure, general contractor, project management, design-build, R Mingo Construction">
+    <meta name="author" content="R Mingo Construction and Development Corporation">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/buildcorp-construction/">
+    <meta property="og:title" content="R Mingo Construction and Development Corporation - Building the Future with Excellence">
+    <meta property="og:description" content="R Mingo Construction and Development Corporation - Professional construction company delivering innovative solutions for residential, commercial, and infrastructure projects.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/buildcorp-construction/">
+    <meta property="twitter:title" content="R Mingo Construction and Development Corporation - Building the Future with Excellence">
+    <meta property="twitter:description" content="R Mingo Construction and Development Corporation - Professional construction company delivering innovative solutions for residential, commercial, and infrastructure projects.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        /* Custom styles for smooth scrolling and animations */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .hover-scale {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-scale:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #dc2626;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .sticky-header {
+            background-color: transparent;
+            backdrop-filter: none;
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sticky-header.transparent {
+            background-color: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), backdrop-filter 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sticky-header .nav-link {
+            color: #ffffff !important;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sticky-header .nav-link::after {
+            background-color: #ffffff !important;
+        }
+        
+        .sticky-header .text-blue-900 {
+            color: #ffffff !important;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sticky-header .text-gray-700 {
+            color: #ffffff !important;
+            transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .sticky-header:hover {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sticky-header:hover .nav-link {
+            color: #dc2626 !important;
+        }
+        
+        .sticky-header:hover .nav-link::after {
+            background-color: #dc2626 !important;
+        }
+        
+        .sticky-header:hover .text-blue-900 {
+            color: #dc2626 !important;
+        }
+        
+        .sticky-header:hover .text-gray-700 {
+            color: #374151 !important;
+        }
+        
+        .sticky-header.header-hidden {
+            transform: translateY(-100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu {
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            max-height: 0;
+        }
+        
+        .mobile-menu.active {
+            max-height: 600px;
+            opacity: 1;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu a {
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .mobile-menu a:hover {
+            transform: translateX(8px);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideUp 0.3s ease-out;
+        }
+        
+        .modal-body {
+            overflow-y: auto;
+            flex: 1;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #dc2626;
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Sticky Header -->
+    <header class="sticky-header fixed top-0 w-full z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <img src="https://raw.githubusercontent.com/Iqoknick/buildcorp-construction/main/R-mingo%20logo.jpg" alt="R Mingo Construction" class="h-10 w-auto">
+                    <div class="flex flex-col">
+                        <div class="text-xl font-bold text-blue-900 tracking-tight">R MINGO</div>
+                        <div class="text-xs font-medium text-blue-900">CONSTRUCTION & DEVELOPMENT</div>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#sectors" class="nav-link text-gray-700 hover:text-red-600">Sectors</a>
+                    <a href="#services" class="nav-link text-gray-700 hover:text-red-600">Services</a>
+                    <a href="#our-work" class="nav-link text-gray-700 hover:text-red-600">Our Work</a>
+                    <a href="#locations" class="nav-link text-gray-700 hover:text-red-600">Locations</a>
+                    <a href="#who-we-are" class="nav-link text-gray-700 hover:text-red-600">Who We Are</a>
+                    <a href="#insights" class="nav-link text-gray-700 hover:text-red-600">Insights</a>
+                    <a href="#careers" class="nav-link text-gray-700 hover:text-red-600">Careers</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-gray-700 hover:text-red-600 transition-all duration-300 hover:scale-110" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="mobile-menu lg:hidden">
+                <div class="py-4 space-y-1">
+                    <a href="#sectors" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg">Sectors</a>
+                    <a href="#services" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg">Services</a>
+                    <a href="#our-work" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg">Our Work</a>
+                    <a href="#locations" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg">Locations</a>
+                    <a href="#who-we-are" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg">Who We Are</a>
+                    <a href="#insights" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg">Insights</a>
+                    <a href="#careers" onclick="toggleMobileMenu()" class="block px-4 py-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-lg">Careers</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-white">
+        <div class="text-center px-6 fade-in">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Building visions</h1>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Developing trust</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Leading construction company delivering innovative solutions for residential, commercial, and infrastructure projects across the nation.</p>
+            <button onclick="openContactForm()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors duration-300">
+                Get a Quote
+            </button>
+        </div>
+    </section>
+
+    <!-- Sectors Section -->
+    <section id="sectors" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-12 fade-in">Our Sectors</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center hover-scale p-6">
+                    <div class="bg-red-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-home text-red-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Residential</h3>
+                    <p class="text-gray-600">Custom homes, apartments, and residential communities built with precision and care.</p>
+                </div>
+                <div class="text-center hover-scale p-6">
+                    <div class="bg-red-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-building text-red-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Commercial</h3>
+                    <p class="text-gray-600">Office buildings, retail spaces, and commercial complexes designed for success.</p>
+                </div>
+               
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-12 fade-in">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
+                    <i class="fas fa-hard-hat text-red-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">General Construction</h3>
+                    <p class="text-gray-600">Full-service construction management from ground breaking to final completion, ensuring quality and timelines.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
+                    <i class="fas fa-tasks text-red-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Project Management</h3>
+                    <p class="text-gray-600">Expert project coordination, budget management, and schedule optimization for complex construction projects.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
+                    <i class="fas fa-drafting-compass text-red-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Design-Build</h3>
+                    <p class="text-gray-600">Integrated design and construction services that streamline the building process and reduce costs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Work Gallery -->
+    <section id="our-work" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-12 fade-in">Our Work</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="relative overflow-hidden rounded-lg hover-scale">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Office Building" class="w-full h-64 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <h3 class="text-white font-semibold">Modern Office Complex</h3>
+                        <p class="text-gray-200 text-sm">Commercial • 50,000 sq ft</p>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg hover-scale">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Residence" class="w-full h-64 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <h3 class="text-white font-semibold">Luxury Residential Estate</h3>
+                        <p class="text-gray-200 text-sm">Residential • 12,000 sq ft</p>
+                    </div>
+                </div>
+                <div class="relative overflow-hidden rounded-lg hover-scale">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Bridge Construction" class="w-full h-64 object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                        <h3 class="text-white font-semibold">Highway Bridge Project</h3>
+                        <p class="text-gray-200 text-sm">Infrastructure • 2.5 miles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-12 fade-in">Our Locations</h2>
+            <div class="flex justify-center">
+                <a href="https://www.google.com/maps/search/?api=1&query=14.405233,120.891284" target="_blank" class="bg-white p-6 rounded-lg shadow-md hover-scale text-center max-w-md block hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-red-600 text-2xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-800">Philippines</h3>
+                    <p class="text-gray-600 text-sm">Neptune St., Grand Parklane, Antel Grand Village, General Trias</p>
+                    <p class="text-red-600 text-sm mt-2 font-medium">Click to view on map →</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section id="who-we-are" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-12 fade-in">Who We Are</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-red-600 mb-4">Our Story</h3>
+                        <p class="text-gray-600 mb-4">Founded in 1985, BuildCorp has grown from a small local contractor to one of the nation's leading construction companies. With over 35 years of experience, we've completed thousands of projects across the country.</p>
+                        <p class="text-gray-600">Our commitment to quality, safety, and innovation has earned us numerous industry awards and the trust of clients ranging from small businesses to Fortune 500 companies.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-red-600 mb-4">Mission & Vision</h3>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">Mission</h4>
+                            <p class="text-gray-600">To deliver exceptional construction solutions that exceed client expectations while maintaining the highest standards of safety, quality, and environmental responsibility.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">Vision</h4>
+                            <p class="text-gray-600">To be the industry leader in sustainable construction innovation, building the future of our communities one project at a time.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Section -->
+                <div class="text-center">
+                    <h3 class="text-2xl font-semibold text-blue-900 mb-8">Leadership Team</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-user text-gray-600 text-4xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-gray-800">John Anderson</h4>
+                            <p class="text-gray-600 text-sm">CEO & Founder</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-user text-gray-600 text-4xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-gray-800">Sarah Mitchell</h4>
+                            <p class="text-gray-600 text-sm">Chief Operating Officer</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                <i class="fas fa-user text-gray-600 text-4xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-gray-800">Michael Chen</h4>
+                            <p class="text-gray-600 text-sm">Chief Engineer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-blue-900 mb-12 fade-in">Insights</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <article class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Construction Trends" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-blue-900 text-sm font-semibold">INDUSTRY NEWS</span>
+                        <h3 class="text-lg font-semibold text-gray-800 mt-2 mb-3">Top Construction Trends for 2024</h3>
+                        <p class="text-gray-600 mb-4">Explore the latest innovations shaping the construction industry, from sustainable materials to AI integration.</p>
+                        <a href="#" class="text-blue-900 hover:text-blue-700 font-semibold">Read More →</a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Project Management" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-blue-900 text-sm font-semibold">TIPS</span>
+                        <h3 class="text-lg font-semibold text-gray-800 mt-2 mb-3">5 Tips for Successful Project Management</h3>
+                        <p class="text-gray-600 mb-4">Learn essential strategies for managing construction projects efficiently and keeping stakeholders satisfied.</p>
+                        <a href="#" class="text-blue-900 hover:text-blue-700 font-semibold">Read More →</a>
+                    </div>
+                </article>
+                <article class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sustainable Building" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-blue-900 text-sm font-semibold">SUSTAINABILITY</span>
+                        <h3 class="text-lg font-semibold text-gray-800 mt-2 mb-3">The Future of Green Building</h3>
+                        <p class="text-gray-600 mb-4">Discover how sustainable construction practices are revolutionizing the industry and protecting our environment.</p>
+                        <a href="#" class="text-blue-900 hover:text-blue-700 font-semibold">Read More →</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-blue-900 mb-12 fade-in">Careers</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-center text-gray-600 mb-12">Join our team of dedicated professionals and help build the future. We're always looking for talented individuals to join our growing company.</p>
+                
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover-scale">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Contractors</h3>
+                                <p class="text-gray-600 mb-3">Lead complex construction projects from conception to completion. 10+ years experience required.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Full-time</span>
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">₱120-150</span>
+                                </div>
+                            </div>
+                            <button class="mt-4 md:mt-0 bg-blue-900 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover-scale">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Site Engineer</h3>
+                                <p class="text-gray-600 mb-3">Manage on-site construction activities and ensure project quality and safety standards.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Full-time</span>
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Los Angeles, CA</span>
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">$80k-$100k</span>
+                                </div>
+                            </div>
+                            <button class="mt-4 md:mt-0 bg-blue-900 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover-scale">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                            <div>
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">Safety Coordinator</h3>
+                                <p class="text-gray-600 mb-3">Implement and monitor safety protocols across all construction sites and projects.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Full-time</span>
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Chicago, IL</span>
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">$70k-$85k</span>
+                                </div>
+                            </div>
+                            <button class="mt-4 md:mt-0 bg-blue-900 hover:bg-blue-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-building text-2xl"></i>
+                        <span class="text-xl font-bold">BuildCorp</span>
+                    </div>
+                    <p class="text-blue-200">Building excellence since 1985. Your trusted partner in construction.</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Contact Info</h3>
+                    <div class="space-y-2 text-blue-200">
+                        <p><i class="fas fa-phone mr-2"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope mr-2"></i> info@buildcorp.com</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> 123 Construction Ave, New York, NY 10001</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-blue-200">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#projects" class="hover:text-white transition-colors">Projects</a></li>
+                        <li><a href="#careers" class="hover:text-white transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
+                <p>&copy; 2024 BuildCorp Construction. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Contact Form Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="bg-blue-900 text-white p-6 rounded-t-lg flex-shrink-0">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-bold">Get a Quote</h2>
+                    <button onclick="closeContactForm()" class="text-white hover:text-gray-300 text-2xl font-bold transition-colors duration-300">
+                        &times;
+                    </button>
+                </div>
+                <p class="mt-2 text-blue-100">Tell us about your project and we'll provide a detailed quote</p>
+            </div>
+            
+            <div class="modal-body">
+                <form class="p-6" onsubmit="handleSubmit(event)">
+                    <!-- Contact Information -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-user mr-2 text-blue-900"></i>
+                            Contact Information
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Project Information -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-building mr-2 text-blue-900"></i>
+                            Project Information
+                        </h3>
+                        <div class="form-group">
+                            <label for="projectType">Project Type *</label>
+                            <select id="projectType" name="projectType" required>
+                                <option value="">Select a project type</option>
+                                <option value="residential">Residential</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="infrastructure">Infrastructure</option>
+                                <option value="renovation">Renovation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="projectSize">Project Size *</label>
+                                <input type="text" id="projectSize" name="projectSize" required placeholder="e.g., 2,500 sq ft, 10 acres">
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Budget Range *</label>
+                                <select id="budget" name="budget" required>
+                                    <option value="">Select budget range</option>
+                                    <option value="under-100k">Under ₱100,000</option>
+                                    <option value="100k-500k">₱100,000 - ₱500,000</option>
+                                    <option value="500k-1m">₱500,000 - ₱1,000,000</option>
+                                    <option value="1m-5m">₱1,000,000 - ₱5,000,000</option>
+                                    <option value="over-5m">Over ₱5,000,000</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">Expected Timeline *</label>
+                            <select id="timeline" name="timeline" required>
+                                <option value="">Select timeline</option>
+                                <option value="asap">ASAP</option>
+                                <option value="1-3-months">1-3 months</option>
+                                <option value="3-6-months">3-6 months</option>
+                                <option value="6-12-months">6-12 months</option>
+                                <option value="1-year+">1+ years</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDetails">Project Details *</label>
+                            <textarea id="projectDetails" name="projectDetails" required placeholder="Please describe your project in detail, including specific requirements, goals, and any special considerations..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Consultation Scheduling -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                            <i class="fas fa-calendar-alt mr-2 text-blue-900"></i>
+                            Consultation Scheduling
+                        </h3>
+                        <div class="form-group">
+                            <label for="consultationType">Preferred Consultation Method *</label>
+                            <select id="consultationType" name="consultationType" required>
+                                <option value="">Select consultation type</option>
+                                <option value="phone">Phone Call</option>
+                                <option value="video">Video Call (Zoom/Teams)</option>
+                                <option value="in-person">In-Person Meeting</option>
+                                <option value="site-visit">Site Visit</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label for="preferredDate">Preferred Date</label>
+                                <input type="date" id="preferredDate" name="preferredDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="preferredTime">Preferred Time</label>
+                                <select id="preferredTime" name="preferredTime">
+                                    <option value="">Select time</option>
+                                    <option value="morning">Morning (9AM - 12PM)</option>
+                                    <option value="afternoon">Afternoon (12PM - 5PM)</option>
+                                    <option value="evening">Evening (5PM - 7PM)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="flex justify-end space-x-4 pb-4">
+                        <button type="button" onclick="closeContactForm()" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-300">
+                            Cancel
+                        </button>
+                        <button type="submit" class="px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors duration-300">
+                            Submit Quote Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("XEj8SLR7sn5fFRosk");
+        })();
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            
+            // Change hamburger to X icon when menu is open
+            const button = event.currentTarget;
+            const icon = button.querySelector('i');
+            
+            if (menu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect - always transparent, hide/show on scroll direction, highlight on hover
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Hide/show header based on scroll direction
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - hide header
+                header.classList.add('header-hidden');
+            } else {
+                // Scrolling up - show header
+                header.classList.remove('header-hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+
+        // Contact Form Modal Functions
+        function openContactForm() {
+            document.getElementById('contactModal').classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeContactForm() {
+            document.getElementById('contactModal').classList.remove('show');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Show loading state
+            const submitButton = event.target.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Send email using EmailJS
+            emailjs.send("service_dehzj26", "template_uu7gtg3", data)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Show success message
+                    alert('Thank you for your quote request! We will contact you within 24 hours.');
+                    
+                    // Close modal and reset form
+                    closeContactForm();
+                    event.target.reset();
+                    
+                    // Reset button
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Show error message
+                    alert('Sorry, there was an error sending your request. Please try again or contact us directly.');
+                    
+                    // Reset button
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target === modal) {
+                closeContactForm();
+            }
+        }
+    </script>
+</body>
+</html>
