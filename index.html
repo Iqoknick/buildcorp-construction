@@ -295,6 +295,50 @@
             resize: vertical;
             min-height: 100px;
         }
+        
+        /* Enhanced Presentation Styles */
+        #slideshow {
+            position: relative;
+            width: 70%;
+            max-width: 600px;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+            z-index: 2;
+        }
+        
+        .dot {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .dot.active {
+            background-color: #dc2626 !important;
+            transform: scale(1.3);
+        }
+        
+        .dot:hover {
+            transform: scale(1.2);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
@@ -347,7 +391,7 @@
         <div class="text-center px-6 fade-in">
             <h1 class="text-5xl md:text-6xl font-bold mb-6">Building visions</h1>
             <h1 class="text-5xl md:text-6xl font-bold mb-6">Developing trust</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Leading construction company delivering innovative solutions for residential, commercial, and infrastructure projects across the nation.</p>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Leading construction company delivering innovative solutions for residential and commercial projects across the nation.</p>
             <button onclick="openContactForm()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors duration-300">
                 Get a Quote
             </button>
@@ -358,21 +402,16 @@
     <section id="sectors" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center text-red-600 mb-12 fade-in">Our Sectors</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
+            <div class="flex justify-center items-center gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale max-w-sm">
                     <i class="fas fa-home text-red-600 text-3xl mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Residential</h3>
                     <p class="text-gray-600">Custom homes, apartments, and residential communities built with precision and care.</p>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
+                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale max-w-sm">
                     <i class="fas fa-building text-red-600 text-3xl mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Commercial</h3>
                     <p class="text-gray-600">Office buildings, retail spaces, and commercial complexes designed for success.</p>
-                </div>
-                <div class="bg-white p-8 rounded-lg shadow-lg hover-scale">
-                    <i class="fas fa-industry text-red-600 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Infrastructure</h3>
-                    <p class="text-gray-600">Public infrastructure projects including roads, bridges, and utilities development.</p>
                 </div>
             </div>
         </div>
@@ -406,19 +445,83 @@
     <section id="our-work" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center text-red-600 mb-12 fade-in">Our Work</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Residential Estate Project Presentation -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Residential Estate Project</h3>
+                <div class="relative max-w-5xl mx-auto">
+                    <div id="slideshow" class="relative overflow-hidden rounded-lg shadow-2xl bg-black">
+                        <!-- Slide 1 -->
+                        <div class="slide active">
+                            <img src="https://raw.githubusercontent.com/Iqoknick/R-Mingo-Construction-and-Development-Corporation/main/Livingroom.jpg" alt="Residential Estate - Living Room" class="w-full h-[350px] object-contain">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                <h4 class="text-white font-bold text-xl mb-1">Living Room</h4>
+                                <p class="text-gray-200 text-sm">Modern Interior • Premium Materials</p>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="slide">
+                            <img src="https://raw.githubusercontent.com/Iqoknick/R-Mingo-Construction-and-Development-Corporation/main/Living%20area.jpg" alt="Residential Estate - Living Area" class="w-full h-[350px] object-contain">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                <h4 class="text-white font-bold text-xl mb-1">Living Area</h4>
+                                <p class="text-gray-200 text-sm">Open Concept • Premium Finishes</p>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="slide">
+                            <img src="https://raw.githubusercontent.com/Iqoknick/R-Mingo-Construction-and-Development-Corporation/main/Kitchen.jpg" alt="Residential Estate - Kitchen" class="w-full h-[350px] object-contain">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                <h4 class="text-white font-bold text-xl mb-1">Modern Kitchen</h4>
+                                <p class="text-gray-200 text-sm">Custom Cabinetry • High-End Appliances</p>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="slide">
+                            <img src="https://raw.githubusercontent.com/Iqoknick/R-Mingo-Construction-and-Development-Corporation/main/2nd%20Floor%20hallway.jpg" alt="Residential Estate - Hallway" class="w-full h-[350px] object-contain">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                <h4 class="text-white font-bold text-xl mb-1">Hallway</h4>
+                                <p class="text-gray-200 text-sm">Second Floor • Modern Design</p>
+                            </div>
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="slide">
+                            <img src="https://raw.githubusercontent.com/Iqoknick/R-Mingo-Construction-and-Development-Corporation/main/2nd%20Floor%20bedroom.jpg" alt="Residential Estate - Master Bedroom" class="w-full h-[350px] object-contain">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                <h4 class="text-white font-bold text-xl mb-1">Master Bedroom</h4>
+                                <p class="text-gray-200 text-sm">Luxury Suite • Walk-in Closet</p>
+                            </div>
+                        </div>
+                        <!-- Slide 6 -->
+                        <div class="slide">
+                            <img src="https://raw.githubusercontent.com/Iqoknick/R-Mingo-Construction-and-Development-Corporation/main/2nd%20FLoor.jpg" alt="Residential Estate - Second Floor" class="w-full h-[350px] object-contain">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                                <h4 class="text-white font-bold text-xl mb-1">Second Floor</h4>
+                                <p class="text-gray-200 text-sm">Living Area • Open Concept</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Presentation Controls -->
+                    <div class="flex justify-center mt-6">
+                        <div class="flex space-x-2">
+                            <button onclick="goToSlide(0)" class="dot w-2 h-2 bg-gray-300 rounded-full transition-all"></button>
+                            <button onclick="goToSlide(1)" class="dot w-2 h-2 bg-gray-300 rounded-full transition-all"></button>
+                            <button onclick="goToSlide(2)" class="dot w-2 h-2 bg-gray-300 rounded-full transition-all"></button>
+                            <button onclick="goToSlide(3)" class="dot w-2 h-2 bg-gray-300 rounded-full transition-all"></button>
+                            <button onclick="goToSlide(4)" class="dot w-2 h-2 bg-gray-300 rounded-full transition-all"></button>
+                            <button onclick="goToSlide(5)" class="dot w-2 h-2 bg-gray-300 rounded-full transition-all"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Projects -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="relative overflow-hidden rounded-lg hover-scale">
                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Office Building" class="w-full h-64 object-cover">
                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
                         <h3 class="text-white font-semibold">Modern Office Complex</h3>
                         <p class="text-gray-200 text-sm">Commercial • 50,000 sq ft</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-lg hover-scale">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Residence" class="w-full h-64 object-cover">
-                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                        <h3 class="text-white font-semibold">Luxury Residential Estate</h3>
-                        <p class="text-gray-200 text-sm">Residential • 12,000 sq ft</p>
                     </div>
                 </div>
                 <div class="relative overflow-hidden rounded-lg hover-scale">
@@ -473,7 +576,7 @@
                 
                 <!-- Team Section -->
                 <div class="text-center">
-                    <h3 class="text-2xl font-semibold text-blue-900 mb-8">Leadership Team</h3>
+                    <h3 class="text-2xl font-semibold text-red-600 mb-4">Leadership Team</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="text-center">
                             <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -505,7 +608,7 @@
     <!-- Insights Section -->
     <section id="insights" class="py-20 bg-gray-50">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-blue-900 mb-12 fade-in">Insights</h2>
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-12 fade-in">Insights</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <article class="bg-white rounded-lg shadow-md overflow-hidden hover-scale">
                     <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Construction Trends" class="w-full h-48 object-cover">
@@ -541,7 +644,7 @@
     <!-- Careers Section -->
     <section id="careers" class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center text-blue-900 mb-12 fade-in">Careers</h2>
+            <h2 class="text-4xl font-bold text-center text-red-600 mb-12 fade-in">Careers</h2>
             <div class="max-w-4xl mx-auto">
                 <p class="text-center text-gray-600 mb-12">Join our team of dedicated professionals and help build the future. We're always looking for talented individuals to join our growing company.</p>
                 
@@ -553,7 +656,7 @@
                                 <p class="text-gray-600 mb-3">Lead complex construction projects from conception to completion. 10+ years experience required.</p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Full-time</span>
-                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">₱120-150</span>
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">₱120-₱150</span>
                                 </div>
                             </div>
                             <button class="mt-4 md:mt-0 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
@@ -569,8 +672,8 @@
                                 <p class="text-gray-600 mb-3">Manage on-site construction activities and ensure project quality and safety standards.</p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Full-time</span>
-                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Los Angeles, CA</span>
-                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">$80k-$100k</span>
+                                    
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">$₱120-₱150</span>
                                 </div>
                             </div>
                             <button class="mt-4 md:mt-0 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
@@ -586,8 +689,7 @@
                                 <p class="text-gray-600 mb-3">Implement and monitor safety protocols across all construction sites and projects.</p>
                                 <div class="flex flex-wrap gap-2">
                                     <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Full-time</span>
-                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">Chicago, IL</span>
-                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">$70k-$85k</span>
+                                    <span class="bg-blue-100 text-blue-900 px-3 py-1 rounded-full text-sm">₱120-₱150</span>
                                 </div>
                             </div>
                             <button class="mt-4 md:mt-0 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-300">
@@ -603,55 +705,75 @@
     <!-- Footer -->
     <footer class="bg-blue-900 text-white py-12">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Company Info -->
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <img src="https://github.com/Iqoknick/R-Mingo-Construction-and-Development-Corporation/blob/main/R-mingo_logo-removebg-preview.png" alt="R Mingo Construction" class="h-12 w-auto">
-                        <span class="text-xl font-bold">R-Mingo Construction and Development Corporations</span>
+                        <img src="https://raw.githubusercontent.com/Iqoknick/R-Mingo-Construction-and-Development-Corporation/main/R-mingo_logo-removebg-preview.png" alt="R Mingo Construction" class="h-12 w-auto">
+                        <div>
+                            <div class="text-lg font-bold text-white">R-Mingo Construction</div>
+                            <div class="text-lg font-bold text-white">Development Corporation</div>
+                        </div>
                     </div>
-                    <p class="text-blue-200">Building excellence since 1985. Your trusted partner in construction.</p>
-                </div>
-                
-                <div>
-                    <h3 class="font-semibold mb-4">Contact Info</h3>
-                    <div class="space-y-2 text-blue-200">
-                        <p><i class="fas fa-phone mr-2"></i> (555) 123-4567</p>
-                        <p><i class="fas fa-envelope mr-2"></i> info@buildcorp.com</p>
-                        <p><i class="fas fa-map-marker-alt mr-2"></i> 123 Construction Ave, New York, NY 10001</p>
+                    <p class="text-blue-200 text-sm leading-relaxed">Building excellence since 1985. Your trusted partner in construction with 35+ years of experience.</p>
+                    
+                    <!-- Business Hours Inline -->
+                    <div class="mt-4 text-blue-200 text-xs space-y-1">
+                        <p class="flex items-center">
+                            <i class="fas fa-clock mr-2 text-red-500"></i>
+                            <span>Mon-Fri: 8:00 AM - 6:00 PM</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-clock mr-2 text-red-500"></i>
+                            <span>Sat: 9:00 AM - 3:00 PM</span>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-times-circle mr-2 text-red-500"></i>
+                            <span>Sunday: Closed</span>
+                        </p>
                     </div>
                 </div>
+                        <!-- Contact Info -->
+                        <div class="space-y-2 text-blue-200 text-sm">
+                            <p class="flex items-center">
+                                <i class="fas fa-phone mr-2 text-red-500"></i> 
+                                <span>(555) 123-4567</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-envelope mr-2 text-red-500"></i> 
+                                <span>info@rmingo-construction.com</span>
+                            </p>
+                            <p class="flex items-start">
+                                <i class="fas fa-map-marker-alt mr-2 text-red-500 mt-1"></i> 
+                                <span>123 Construction Ave, New York, NY 10001</span>
+                            </p>
+                        </div>
                 
+                <!-- Social Media -->
                 <div>
-                    <h3 class="font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2 text-blue-200">
-                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
-                        <li><a href="#projects" class="hover:text-white transition-colors">Projects</a></li>
-                        <li><a href="#careers" class="hover:text-white transition-colors">Careers</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="font-semibold mb-4">Follow Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-facebook-f"></i>
+                    <div class="flex space-x-3 mb-6">
+                        <a href="#" class="bg-red-600 hover:bg-red-700 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-facebook-f text-white"></i>
                         </a>
-                        <a href="#" class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-twitter"></i>
+                        <a href="#" class="bg-red-600 hover:bg-red-700 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-twitter text-white"></i>
                         </a>
-                        <a href="#" class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
+                        <a href="#" class="bg-red-600 hover:bg-red-700 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin-in text-white"></i>
                         </a>
-                        <a href="#" class="bg-blue-800 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                            <i class="fab fa-instagram"></i>
+                        <a href="#" class="bg-red-600 hover:bg-red-700 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram text-white"></i>
                         </a>
                     </div>
+                    
+                    
+                </div>
+                    
                 </div>
             </div>
             
-            <div class="border-t border-blue-800 mt-8 pt-8 text-center text-blue-200">
-                <p>&copy; 2024 BuildCorp Construction. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <div class="border-t border-blue-800 mt-8 pt-6 text-center text-blue-200">
+                <p class="text-sm">&copy; 2024 R-Mingo Construction and Development Corporation. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
         </div>
     </footer>
@@ -798,6 +920,110 @@
         (function() {
             emailjs.init("XEj8SLR7sn5fFRosk");
         })();
+        
+        // Enhanced Presentation Functionality
+        let currentSlide = 0;
+        let autoPlayInterval;
+        let isAutoPlaying = true;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = slides.length;
+        
+        // Debug function
+        function debugLog(message) {
+            console.log('Slideshow Debug:', message);
+        }
+        
+        function showSlide(index) {
+            debugLog(`Showing slide ${index}`);
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide
+            if (slides[index]) {
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+                debugLog(`Slide ${index} is now active`);
+            } else {
+                debugLog(`Slide ${index} not found!`);
+            }
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        function goToSlide(index) {
+            // Clear all active states first
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Set new active states
+            if (slides[index]) {
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+                debugLog(`Jumped to slide ${index}`);
+            }
+            
+            // Continue auto-play without stopping - just reset the timer
+            if (isAutoPlaying) {
+                clearInterval(autoPlayInterval);
+                autoPlayInterval = setInterval(nextSlide, 2000);
+                debugLog('Auto-play timer reset');
+            }
+        }
+        
+        function startAutoPlay() {
+            debugLog('Starting auto-play');
+            autoPlayInterval = setInterval(nextSlide, 2000); // 2 seconds
+            isAutoPlaying = true;
+        }
+        
+        function stopAutoPlay() {
+            debugLog('Stopping auto-play');
+            clearInterval(autoPlayInterval);
+            isAutoPlaying = false;
+            updateAutoPlayButton();
+        }
+        
+        function toggleAutoPlay() {
+            if (isAutoPlaying) {
+                stopAutoPlay();
+            } else {
+                startAutoPlay();
+            }
+        }
+        
+        function updateAutoPlayButton() {
+            const btn = document.getElementById('autoPlayBtn');
+            if (isAutoPlaying) {
+                btn.innerHTML = '<i class="fas fa-pause mr-2"></i> Pause Auto-play';
+            } else {
+                btn.innerHTML = '<i class="fas fa-play mr-2"></i> Start Auto-play';
+            }
+        }
+        
+        // Initialize slideshow when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            debugLog(`Found ${slides.length} slides`);
+            // Make sure first slide is active
+            if (slides.length > 0) {
+                slides[0].classList.add('active');
+                dots[0].classList.add('active');
+                debugLog('First slide set as active');
+                debugLog('First dot set as active');
+            }
+            startAutoPlay();
+        });
         
         // Mobile menu toggle
         function toggleMobileMenu() {
