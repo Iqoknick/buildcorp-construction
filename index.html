@@ -809,6 +809,12 @@
                                 <label for="phone">Phone Number</label>
                                 <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
                             </div>
+                            <div class="mb-4">
+                                <label for="emailService">Email Service</label>
+                                <select id="emailService" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                                    <option value="gmail">Gmail</option>
+                                </select>
+                            </div>
                             
                         </div>
                     </div>
@@ -912,10 +918,33 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         // Initialize EmailJS
         (function() {
-            emailjs.init("XEj8SLR7sn5fFRosk");
+            console.log('Initializing EmailJS...');
+            console.log('Outlook Service ID:', 'service_1gify4n');
+            console.log('Gmail Service ID:', 'service_dehzj26');
+            console.log('Template ID:', 'template_uu7gtg3');
+            console.log('Private Key:', 'XEj8SLR7sn5fFRosk');
+            
+            // Wait for EmailJS to be available
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init("service_1gify4n", "template_uu7gtg3", "XEj8SLR7sn5fFRosk");
+                emailjs.init("service_dehzj26", "template_uu7gtg3", "XEj8SLR7sn5fFRosk");
+                console.log('EmailJS initialized successfully');
+            } else {
+                console.error('EmailJS not loaded yet. Retrying in 1 second...');
+                setTimeout(function() {
+                    if (typeof emailjs !== 'undefined') {
+                        emailjs.init("service_1gify4n", "template_uu7gtg3", "XEj8SLR7sn5fFRosk");
+                        emailjs.init("service_dehzj26", "template_uu7gtg3", "XEj8SLR7sn5fFRosk");
+                        console.log('EmailJS initialized successfully');
+                    } else {
+                        console.error('EmailJS failed to load. Please refresh the page.');
+                    }
+                },1000);
+            }
         })();
         
         // Enhanced Presentation Functionality
@@ -989,7 +1018,6 @@
             debugLog('Stopping auto-play');
             clearInterval(autoPlayInterval);
             isAutoPlaying = false;
-            updateAutoPlayButton();
         }
         
         function toggleAutoPlay() {
@@ -1038,6 +1066,56 @@
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
+        }
+
+        // Form submission handler
+        function sendEmail(event) {
+            event.preventDefault();
+            
+            // Check if EmailJS is available
+            if (typeof emailjs === 'undefined') {
+                alert('Email service is loading. Please wait a moment and try again.');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Send email using EmailJS
+            // Always use Gmail service
+            emailjs.send("service_dehzj26", "template_uu7gtg3", data)
+                .then(function(response) {
+                    console.log('Gmail SUCCESS!', response.status, response.text);
+                    console.log('Response:', response);
+                    submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i> Message Sent!';
+                    submitBtn.disabled = false;
+                    
+                    // Reset form
+                    event.target.reset();
+                    
+                    // Show success message
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                    }, 3000);
+                })
+                .catch(function(error) {
+                    console.error('Gmail FAILED:', error);
+                    console.error('Full error details:', error);
+                    alert('Gmail service error: ' + error.text + '. Check console for details.');
+                    submitBtn.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i> Error. Try Again';
+                    submitBtn.disabled = false;
+                    
+                    setTimeout(() => {
+                        submitBtn.innerHTML = originalText;
+                    }, 3000);
+                });
         }
 
         // Fade in animation on scroll
